@@ -16,7 +16,7 @@ Dotenv.config();
 
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
-  useUnifiedTopology: true
+  // useUnifiedTopology: true
 })
 .then(() => {
   console.log("✅ MongoDB connected to Cluster1");
@@ -29,6 +29,9 @@ app.use('/vender',Venderroutes);
 app.use('/firm',firmRoutes)
 app.use('/product',productRoutes)
 
+Dotenv.config();
+console.log("📄 Current Mongo URI:", process.env.MONGO_URI);
+console.log("🚨 process.env:", process.env);
 
 app.listen(PORT,()=>{
     console.log("serever running successfully")
